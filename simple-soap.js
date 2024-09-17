@@ -69,6 +69,8 @@ module.exports = function (RED) {
             reqOpts.forever = true;
             reqOpts.body = reqBody;
 
+	    reqOpts.checkServerIdentity = () => undefined;
+
             if (config.useAuth && node.credentials) {
                 reqOpts.auth = {
                     user: node.credentials.user,
